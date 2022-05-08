@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"  
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+                </head>
+                <body>
+                    <div>Ingrese la siguiente información del libro que desea guardar en la biblioteca:</div>
+
+                    <form method="POST" th:action="@{/libro/registro}"> 
+
+                        <h3 th:if="${exito} !=null" th:text="${exito}" ></h3>
+                        <h3 th:if="${error} !=null" th:text="${error}" ></h3>
+
+                        <div  class="form-group">
+
+                            <label for="titulo" class=""> Titulo:</label>
+                            <input type="text"  class="form-control" name="titulo" id="titulo"> <!--titulo debe coincidir con lo q corresponde al back de modo que se matcheen -->
+
+                                <label for="isbn" class="">Isbn:</label>
+                                <input type="number" class="form-control" id=""  name="isbn">
+
+                                    <label for="anio" class="">Año:</label>
+                                    <input type="number" class="form-control" id="" name="anio">
+
+                                        <label for="ejemplares" class="">Ejemplares</label>
+                                        <input type="number" class="form-control" id="" name="ejemplares">
+
+                                            <label for="ejemplaresPrestados" class="">Ejemplares prestados</label>
+                                            <input type="number" class="form-control" id="" name="ejemplaresPrestados">
+
+                                                <label for="ejemplaresRestantes" class="">Ejemplares Restantes:</label>
+                                                <input type="number" class="form-control" id="" name="ejemplaresRestantes">
+
+                                                    <label for="alta" class="">Fecha de alta:</label>
+                                                    <input type="date" class="form-control" id="" name="alta">
+                                                       
+                                                        <br>
+                                                        <label for="active" class="">Activo:</label>
+                                                       <!-- <input type="boolean" class="form-control" id="" name="active"> -->
+                                                         <select class="form-select" name="active" id="">
+                                                                    
+                                                                
+                                                                <option selected > True/false?</option>
+                                                              
+                                                                <option>  True  </option>
+                                                                <option>  False  </option>
+                                                                
+                                                                
+                                                         </select>
+                                                           
+                                                            <!--
+                                                                            <label for="StaticEmail" class="">Nombre Autor:</label>
+                                                                            <input type="text" class="form-control" id="" name="autor.nombre">
+                                                            
+                                                                            <label for="StaticEmail" class="">Fecha de alta Autor:</label>
+                                                                            <input type="date" class="form-control" id="" name="autor.alta">
+                                                                                
+                                                                            <label for="StaticEmail" class="">Activo</label>
+                                                                            <input type="boolean" class="form-control" id="" name="autor.active">
+                                                                            
+                                                                             <label for="StaticEmail" class="">Nombre Editorial:</label>
+                                                                            <input type="text" class="form-control" id="" name="editorial.nombre">
+                                                            
+                                                                            <label for="StaticEmail" class="">Fecha de alta Editorial:</label>
+                                                                            <input type="date" class="form-control" id="" name="editorial.alta">
+                                                                                
+                                                                            <label for="StaticEmail" class="">Activo</label>
+                                                                            <input type="boolean" class="form-control" id="" name="editorial.active">
+                                                                                
+                                                                             
+                                                            -->
+                                                            
+                                                            <br><br>
+                                                                    <a class="btn btn-primary" th:onclick="set1()">SET 1</a>
+                                                                    <a class="btn btn-warning" th:onclick="set2()">SET 2</a>
+                                                           
+                                                                    <button type="button" th:onclick="${@libroControlador.set1()}"> SET 1</button>
+                                                                    <button type="button" th:onclick="${@libroControlador.set2()}"> SET 2</button>
+                                                
+                                                                    
+                                                                    
+                                                                    <div th:if="${opNum} == 1"> 
+                                                                <h3>ES uno FUNCIONO</h3>
+                                                                
+                                                                
+                                                            </div>
+                                                                
+                                                                
+                                                            <div th:if="${opNum} == 2"> 
+                                                                <h3>ES 2</h3>
+                                                                
+                                                                
+                                                            </div>
+                                                                
+                                                                
+                                                            </div>
+                        
+                        
+                                                                <div th:if="${opIf} == true"> 
+                                                                <h3>ES uno FUNCIONO</h3>
+                                                                                                                                
+                                                            </div>
+                                                                <div th:unless="${opIf == false}"><p>bar is false.</p></div>
+                        
+                        
+
+                                                            <div class="form-group">
+                                                                <label for=""> Seleccionar el autor</label>
+                                                                <select name="autor" class="form-select">
+                                                                    
+                                                                
+                                                                <option selected> Seleccionar autor...</option>
+                                                              
+                                                                <option
+                                                                    th:each="a: ${autores}"
+                                                                    th:text="${a.nombre}"
+                                                                    >
+                                                                    
+                                                                </option>
+                                                                
+                                                                
+                                                                
+                                                                </select>
+                                                                
+                                                                
+                                                                <div class="form-group">
+                                                                <label for=""> Seleccionar la  Editorial</label>
+                                                                <select name="autor" class="form-select">
+                                                                    
+                                                                
+                                                                <option selected> Seleccionar editorial...</option>
+                                                           
+                                                                <option
+                                                                    th:each="e: ${editoriales}"
+                                                                    th:text="${e.nombre}"
+                                                                    >
+                                                                    
+                                                                </option>
+                                                                <!--<option
+                                                                    th:each="a: ${autores}"
+                                                                    th:value="${a.id}"
+                                                                    th:text="{a.nombre}">
+                                                                    
+                                                                </option>
+                                                                -->
+                                                                </select>
+                                                                    
+                                                             
+                                                                <!--<option
+                                                                    th:each="a: ${autores}"
+                                                                    th:value="${a.id}"
+                                                                    th:text="{a.nombre}">
+                                                                    
+                                                                </option>
+                                                                -->
+                                                            </div>
+                                                            
+                                                               <!-- <div th:if="${newAutor?}"><p>Si es nuevo el Autor deberá mostrarse el form para el autor</p></div>-->
+                                                                
+                                                               <!-- <div th:if="${oldAutor?}"><p>Si el autor ya existe deberá mostrarse el menu desplegable con los autores></p></div>-->
+                                                                
+                                                                <div th:if="${true}">This Element will be visible</div>
+                                                            <div th:if="${false}">This Element will not be visible</div>
+                                                         <div th:unless="${true}">This Element will not be visible</div>
+                                                         <div th:unless="${false}">This Element will be visible</div>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            </div>
+
+                                                            <button class="btn btn-danger">Guardar </button>
+
+                                                            </form>
+
+
+
+                                                            </body>
+                                                            </html>

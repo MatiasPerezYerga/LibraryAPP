@@ -1,0 +1,65 @@
+
+
+#myNavbar{
+
+color:white;
+
+}
+
+#icoLib{
+
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
+}
+
+#icoLib:hover{
+    box-shadow: rgba(0, 0, 0, 0.45) 0 8px 15px;
+    transform: translateY(-20px);
+
+}
+
+
+
+.stringId{
+
+font-size:10px;
+
+}
+
+#lista{
+background-color:rgba(255,255,255, 0.8);
+border-radius: 1em;
+
+}
+
+.contenedor3{
+
+    background-image: url("https://res.cloudinary.com/dzyvb836r/image/upload/v1651809592/thumb-1920-389877_ibbywz.jpg");
+background-attachment: fixed;
+background-size: cover;
+    
+    
+}
+
+#contenedor{
+    background-image: url("https://res.cloudinary.com/dzyvb836r/image/upload/v1651809592/thumb-1920-389877_ibbywz.jpg");
+background-attachment: fixed;
+background-size: cover;
+    
+
+}
+
+#contenedor2{
+background-image: url("https://res.cloudinary.com/dzyvb836r/image/upload/v1651706592/aut6_wtzspw.jpg");
+background-attachment: fixed;
+background-size: cover;
+
+  }
+
+  
+#contenedor3 {
+background-image: url("https://res.cloudinary.com/dzyvb836r/image/upload/v1651809592/thumb-1920-389877_ibbywz.jpg");
+    
+                background-attachment: fixed;
+                background-size: cover;
+    }

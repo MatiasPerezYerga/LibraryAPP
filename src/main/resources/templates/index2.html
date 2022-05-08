@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor. 
+
+ 
+        
+        
+        
+ 
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"  
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"> <!--Esto Lo utilizo para que thymeleaf no me tire error-->
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="ISO-8859-1">
+        <title>Listado de Perros</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+
+ 
+    </head>
+    <body>
+        <div>VAMOS TIRRI VAN HOUSEN!!!!</div>
+       
+        
+       <h2 th:text="${mensaje}"></h2>
+        
+        <h1 th:text="${nombres}"></h1> 
+        
+        <ul>
+            <li th:each="nombre: ${nombres}" th:text="${nombre}"> </li>
+              <li th:each="variable : ${nombres}" th:text="${variable}"></li>
+            
+        </ul>
+        
+        
+        <a href="" class="btn btn-danger">BOOTSTRAP BABY!</a>
+    </body>
+</html>
